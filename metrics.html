@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TokenTrack Dashboard · Metrics Analyzer</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" integrity="sha384-Idm3D9yn8PiMb/8HqEepwN3tYzVSOiM6I3jHZKU50mKnyqBiL59uA4Ydp5yP2c+H" crossorigin="anonymous"></script>
+</head>
+<body data-page="metrics">
+  <header class="site-header">
+    <h1>Metrics Analyzer</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="metrics.html" class="active">Metrics Analyzer</a>
+      <a href="stress-test.html">Stress Test Simulator</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="section">
+      <h2>Custom Dashboard Builder</h2>
+      <p>Drag available metrics into the canvas and tweak weights to build stakeholder-specific views. Saved preferences are stored locally to mimic the <code>UserPreferences</code> data type.</p>
+      <div class="builder">
+        <div class="palette" aria-label="Available metrics" role="list">
+          <div class="draggable" draggable="true" data-metric="velocity">Token Velocity</div>
+          <div class="draggable" draggable="true" data-metric="cbdcAdoption">CBDC Adoption Rate</div>
+          <div class="draggable" draggable="true" data-metric="depositCoverage">Tokenized Deposit Coverage</div>
+          <div class="draggable" draggable="true" data-metric="stressScore">Stress Sensitivity Score</div>
+          <div class="draggable" draggable="true" data-metric="supplyChain">Supply Chain Friction</div>
+          <div class="draggable" draggable="true" data-metric="sentiment">Fintech Sentiment Index</div>
+        </div>
+        <div id="canvas" class="canvas" aria-label="Custom dashboard canvas" role="region">
+          <p class="hint">Drop metrics here to track them. Click a card to edit parameters.</p>
+        </div>
+      </div>
+      <div class="builder-actions">
+        <button class="btn" id="savePreferences">Save Layout</button>
+        <button class="btn ghost" id="clearPreferences">Reset</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Metric Detail</h2>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>Configuration</h3>
+          <form id="metricForm">
+            <label>
+              Metric Label
+              <input type="text" id="metricLabel" required />
+            </label>
+            <label>
+              Weight (0-1)
+              <input type="number" id="metricWeight" min="0" max="1" step="0.05" required />
+            </label>
+            <label>
+              Alert Threshold
+              <input type="number" id="metricThreshold" step="0.1" />
+            </label>
+            <button class="btn primary" type="submit">Update Metric</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Preview</h3>
+          <canvas id="metricPreview"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Create reusable metric layouts for compliance, risk, or innovation teams.</p>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
