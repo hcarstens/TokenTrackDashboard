@@ -4,7 +4,31 @@ A no-code inspired prototype that demonstrates the TokenTrack Dashboard experien
 
 ## Getting started
 
-Open `index.html` in your browser to explore the prototype. The experience is split across dedicated pages:
+### Running the Prototype
+
+To run the prototype with full functionality (including live API calls):
+
+```bash
+# Start local development server
+python3 -m http.server 8000
+
+# Or with Python 2:
+python -m SimpleHTTPServer 8000
+```
+
+Then open http://localhost:8000 in your browser.
+
+To stop the server:
+```bash
+# Find and kill the process
+pkill -f "python3 -m http.server"
+# Or kill the specific port
+lsof -ti:8000 | xargs kill
+```
+
+### Alternative: Direct File Access
+
+Open `index.html` directly in your browser. The experience is split across dedicated pages:
 
 - **Home (`index.html`)** — Overview of capabilities and next steps.
 - **Dashboard (`dashboard.html`)** — Live token metrics, anomaly detection, and contextual signals.
