@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TokenTrack Dashboard · Live Overview</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" integrity="sha384-Idm3D9yn8PiMb/8HqEepwN3tYzVSOiM6I3jHZKU50mKnyqBiL59uA4Ydp5yP2c+H" crossorigin="anonymous"></script>
+</head>
+<body data-page="dashboard">
+  <header class="site-header">
+    <h1>Live Tokenization Dashboard</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="metrics.html">Metrics Analyzer</a>
+      <a href="stress-test.html">Stress Test Simulator</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="section">
+      <h2>Aggregated Metrics</h2>
+      <div class="grid two-col">
+        <div class="stat-card">
+          <p class="label">Total Tokenized Value</p>
+          <p class="value" id="totalValue">$0</p>
+        </div>
+        <div class="stat-card">
+          <p class="label">Anomaly Alerts</p>
+          <p class="value" id="anomalyCount">0</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Live Supply &amp; Volume</h2>
+      <div class="grid two-col">
+        <canvas id="supplyChart" aria-label="Supply chart" role="img"></canvas>
+        <canvas id="volumeChart" aria-label="Volume chart" role="img"></canvas>
+      </div>
+      <p class="hint">Data updates every 5 seconds. Alerts trigger when 3-sigma anomalies are detected.</p>
+    </section>
+
+    <section class="section">
+      <h2>Alerts &amp; Context</h2>
+      <div class="grid two-col">
+        <div>
+          <ul id="alertsList" class="alerts"></ul>
+        </div>
+        <div class="context-card">
+          <h3>Contextual Signals</h3>
+          <p>Integrating supply chain congestion metrics (Port Congestion Index) and social sentiment (Fintech Adoption Pulse) to flag unintended consequences that originate outside pure market data.</p>
+          <div id="contextSignals" class="context-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Data shown is aggregated for privacy and sourced from public APIs where available.</p>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
